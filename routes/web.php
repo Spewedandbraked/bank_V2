@@ -10,9 +10,23 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::post('/test', function () {
         dd($_REQUEST);
     })->name('test');
+    Route::get('/test', function () {
+        function bbb($toexecute, $toexecute2)
+        {
+            $toexecute('1', '2');
+            $toexecute2('3', '4');
+        }
+        bbb(
+            $blockMan = function ($friendRecord, $takenUser) {
+                dump($friendRecord, $takenUser);
+            },
+            $blockMan
+        );
+    })->name('test');
 
     Route::get('/dashboard', [FriendsController::class, 'index'])->name('dashboard');
     Route::post('/friend/add', [FriendsController::class, 'addFriend'])->name('addFriend');
+    Route::post('/friend/block', [FriendsController::class, 'blockFriend'])->name('blockFriend');
 
     Route::get('/moneybox', [CheckController::class, 'index'])->name('moneybox');
     Route::post('/moneyBox/createNew', [CheckController::class, 'store'])->name('createCheck');
