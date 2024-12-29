@@ -1,4 +1,4 @@
-<nav x-data="{ open: false }" class="border-2 border-user w-fit absolute right-0 z-{{$z ?? 0}}" style="background: white;">
+<nav x-data="{ open: false }" class="border-2 border-user w-fit absolute right-0 z-{{$z ?? 0}}" style="background: white; -webkit-transform: translate3d(0,0,0) ">
     {{-- border-user border-admin => сделать автоподкидывание цвета в зависимости от режима --}}
     <div class="flex items-center flex-row-reverse justify-between">
         <button @click="open = ! open">
